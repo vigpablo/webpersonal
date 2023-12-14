@@ -1,0 +1,570 @@
+<body [ngClass]="{'bg-gray-800': darkMode, 'bg-white': !darkMode}">
+
+  <div class="relative w-full h-full">
+    <div class="absolute right-16 top-12 z-10">
+      <button class="text-white hover:bg-gray-200 w-10 h-10 rounded-full hover:bg-opacity-40 text-sm duration-200" (click)="darkModeSwitch()">
+        <i *ngIf="darkMode" class="fa-regular fa-2xl fa-sun"></i>
+        <i *ngIf="!darkMode" class="fa-regular fa-2xl fa-moon"></i>
+      </button>
+    </div>
+    <div class="absolute top-52 left-1/2 -translate-x-1/2 z-40">
+      <iframe *ngIf="cv" src="../../assets/CV.pdf" frameborder="0" class="w-[850px] h-[930px] rounded-lg"></iframe>
+      <iframe *ngIf="cvEng" src="../../assets/CVeng.pdf" frameborder="0" class="w-[850px] h-[930px] rounded-lg"></iframe>
+    </div>
+
+    <div *ngIf="cv || cvEng" class="bg-black opacity-60 h-full w-full bg-cover absolute z-30" (click)="clickOut()"></div>
+
+    <div class="overflow-hidden flex flex-col items-center w-full">
+
+      <div class="header relative -mt-32"></div>
+
+      <div class="flex flex-col items-center">
+        <nav class="flex flex-col items-center absolute top-14 md:right-1/3 xl:pr-[90px]">
+          <div class="flex space-x-14 text-white md:space-x-[105px]">
+            <div class="flex space-x-2">
+              <img src="../../assets/flags/esp.jpg" alt="" class="h-4 w-6 md:h-6 md:w-8 rounded-sm hover:cursor-pointer" [ngClass]="{'outline outline-2 outline-gray-300 rounded-sm': spanish}"  (click)="toSpanish()">
+              <img src="../../assets/flags/brit.jpg" alt="" class="h-4 w-6 md:h-6 md:w-8 rounded-sm hover:cursor-pointer" [ngClass]="{'outline outline-2 outline-gray-300 rounded-sm': !spanish}"  (click)="toEnglish()">
+            </div>
+            <div *ngIf="spanish; else english" class="flex space-x-[35px] text-white md:space-x-[78px]">
+              <div class="w-[81px] h-10 hover:scale-110 hover:cursor-pointer duration-100" (click)="aboutFunction()">SOBRE MI</div>
+              <div class="w-[102px] h-10 hover:scale-110 hover:cursor-pointer duration-100" (click)="skillsFunction()">HABILIDADES</div>
+              <div class="w-[78px] h-10 hover:scale-110 hover:cursor-pointer duration-100" (click)="projectsFunction()">PROYECTOS</div>
+              <div class="w-[80] h-10 hover:scale-110 hover:cursor-pointer duration-100" (click)="contactFunction()">CONTACTO</div>
+            </div>
+            <ng-template class="flex space-x-14 text-white md:space-x-[105px]" #english>
+              <div class="w-[81px] h-10 hover:scale-110 hover:cursor-pointer duration-100" (click)="aboutFunction()">ABOUT ME</div>
+              <div class="w-[50px] h-10 hover:scale-110 hover:cursor-pointer duration-100" (click)="skillsFunction()">SKILLS</div>
+              <div class="w-[78px] h-10 hover:scale-110 hover:cursor-pointer duration-100" (click)="projectsFunction()">PROJECTS</div>
+              <div class="w-[80] h-10 hover:scale-110 hover:cursor-pointer duration-100" (click)="contactFunction()">CONTACT</div>
+            </ng-template>
+          </div>
+          <img src="../../assets/imágenes/profilea.jpg" alt="" class="w-72 profile rounded-md shadow-xl pt-8 md:hidden">
+        </nav>
+
+        <img src="../../assets/imágenes/profilea.jpg" alt="" class="hidden md:block w-72 profile rounded-md shadow-xl absolute right-[70px] md2:right-[140px] lg:right-[220px] xl:right-[400px] top-36">
+
+        <div class="text-center text-H5 font-light mt-56 md:text-justify md:mt-0 md:-ml-[180px] md2:-ml-[430px] lg:-ml-[330px] xl:-ml-[455px] md:text-H4" [ngClass]="{'text-white': darkMode, 'text-gray-700': !darkMode}">
+          <div *ngIf="spanish">
+            <p class="w-[650px] leading-[50px]">Hola, soy <span class="text-electricBlue font-medium">Pablo Vignolo</span>,<br>
+              un desarrollador web front-end <br>de Rosario, Argentina. <br>Me gusta construir interfaces y web apps!</p>
+          </div>
+          <div *ngIf="!spanish">
+            <p class="w-[650px] leading-[50px]">Hi, I'm <span class="text-electricBlue font-medium">Pablo Vignolo</span>,
+                a front-end <br>web developer based in Rosario, Argentina.<br> I love to build interfaces and web apps!</p>
+          </div>
+          <div class="text-H6 font-semibold md:font-normal pt-10 md:pt-16 md:text-lg">
+            <div *ngIf="spanish">
+              Ponerse en contacto &nbsp;<i class="em em-point_right" aria-role="presentation" aria-label="WHITE RIGHT POINTING BACKHAND INDEX"></i>&nbsp;&nbsp;
+              <span>vignolopbl@gmail.com</span>
+            </div>
+            <div *ngIf="!spanish">
+              Get in touch &nbsp;<i class="em em-point_right" aria-role="presentation" aria-label="WHITE RIGHT POINTING BACKHAND INDEX"></i>&nbsp;&nbsp;
+              <span>vignolopbl@gmail.com</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- container -->
+
+        <div class="flex flex-col text-center items-center px-48 pt-20 space-y-10 md0:px-64 md:px-40 md:pt-36 xl:px-[395px]" [ngClass]="{'text-white': darkMode, 'text-gray-800': !darkMode}" #background>
+          <div *ngIf="spanish" class="text-H6 font-bold tracking-normal text-electricBlue md:text-H5 lg:text-H4">
+            HISTORIAL
+          </div>
+          <div *ngIf="!spanish" class="text-H6 font-bold tracking-normal text-electricBlue md:text-H5 lg:text-H4">
+            BACKGROUND
+          </div>
+          <div *ngIf="spanish" class="text-sm flex flex-col items-center lg:text-body">
+            <p>
+              Me gradué en Licenciatura en Comunicación Social en la Univerdad Nacional de Rosario
+              y me desempeñé en varias empresas de telecomunicaciones. Sin embargo, luego de darme cuenta
+              que no era lo que buscaba y de probar otros emprendimientos, descubrí en el desarrollo web
+              una oportunidad para unir mi gusto por la tecnología y la aplicación de mis conocimientos
+              para lograr una comunicación clara y certera. El desarrollo web se convirtió en mi lugar favorito
+              para desarrollarme profesionalmente, en donde encontré una verdadera vocación. Mi objetivo es
+              construir productos web eficientes en su funcionamiento mientras ofrecen experiencias atractivas
+              para el usuario.
+              Cuando no estoy frente a un monitor, me gusta nadar, jugar al tenis o leer.
+            </p>
+            <div class="pt-6 w-28 font-semibold">
+              <p class="flex items-end hover:cursor-pointer" (click)="cvFunc()">Ver mi CV &nbsp;<i class="material-icons">arrow_forward</i></p>
+            </div>
+          </div>
+          <div *ngIf="!spanish" class="text-sm flex flex-col items-center lg:text-body">
+            <p>
+              I graduated in Communication Science from Rosario National University and I performed
+              in several telecomunications companies. However, after realizing it was not what I was really
+              looking for and trying other projects, I found in web development an oportunity to bridge my
+              taste for technology with the application of my knowledge to achieve a clear and accurate communication.
+              Today, web development became my place to grow professionally and where I found my true vocation.
+              My objective is building efficient web products that offer attractive user experiences.
+              When I'm not in front of a computer screen, I like to swim, play tennis or read a book.
+            </p>
+            <div class="pt-6 w-36 font-semibold">
+              <p class="flex items-end hover:cursor-pointer" (click)="cvEngFunc()">View my resume &nbsp;<i class="material-icons">arrow_forward</i></p>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="flex flex-col items-center pt-20 md:pt-36 text-gray-500 space-y-10" #skills>
+          <div *ngIf="spanish" class="text-H6 font-bold tracking-normal text-electricBlue md:text-H5 lg:text-H4">
+              HABILIDADES
+          </div>
+          <div *ngIf="!spanish" class="text-H6 font-bold tracking-normal text-electricBlue md:text-H5 lg:text-H4">
+              SKILLS
+          </div>
+          <div class="flex flex-col items-center space-y-10 text-subtitle text-center md:flex-row md:space-x-10 md:space-y-0">
+            <div class="flex space-x-10">
+              <div>
+                <i class="fa-brands fa-angular fa-4x" style="color: #999999;"></i>
+                <p>Angular</p>
+              </div>
+              <div>
+                <i class="fa-brands fa-square-js fa-4x" style="color: #999999;"></i>
+                <p>Javascript</p>
+              </div>
+              <div>
+                <i class="fa-brands fa-css3 fa-4x" style="color: #999999;"></i>
+                <p>CSS3</p>
+              </div>
+              <div>
+                <img src="../../assets/imágenes/Sin título-2.png" alt="" class="h-11 mb-2 pt-1">
+                <p>Tailwind</p>
+              </div>
+            </div>
+            <div class="flex space-x-[50px] pr-2 md:space-x-10 md:pr-0">
+              <div>
+                <img src="../../assets/imágenes/reduxicon.png" alt="" class="h-[50px] mb-1 pt-1">
+                <p>Redux</p>
+              </div>
+              <div>
+                <i class="fa-brands fa-html5 fa-4x" style="color: #999999;"></i>
+                <p>Html5</p>
+              </div>
+              <div>
+                <i class="fa-brands fa-github fa-4x" style="color: #999999;"></i>
+                <p>Github</p>
+              </div>
+              <div>
+                <i class="fa-brands fa-git-alt fa-4x" style="color: #999999;"></i>
+                <p>Git</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-col items-center pt-20 space-y-10" #projects>
+          <div *ngIf="spanish" class="text-H6 font-bold tracking-normal text-electricBlue md:text-H5 lg:text-H4">
+            PROYECTOS
+          </div>
+          <div *ngIf="!spanish" class="text-H6 font-bold tracking-normal text-electricBlue md:text-H5 lg:text-H4">
+            PROJECTS
+          </div>
+
+          <!-- card group container -->
+          <div class="hidden flex-col items-center space-y-10 pb-10 text-xs font-light text-center relative lg:flex">
+            <div class="line"></div>
+            <!-- card row -->
+            <div class="flex space-x-8 relative">
+              <!-- card -->
+              <div class="w-64 h-[400px] pb-4 flex flex-col justify-between rounded-lg overflow-hidden shadow-xl
+                hover:scale-110 duration-200 hover:cursor-pointer" [ngClass]="{'text-white': darkMode, 'text-gray-800': !darkMode, 'bg-navDark': darkMode, 'bg-white': !darkMode}">
+                <img src="../../assets/imágenes/image-gallery-1.jpg" alt="" class="h-[159px] w-[300px]" >
+                <div class="w-full text-H5 font-bold" >
+                  <a href="" class=" ">Audiophile</a>
+                </div>
+                <div class="px-4">
+                  <div *ngIf="spanish">
+                    Una página de e-commerce para productos de audio. Puedes ver, agregar y editar productos en el carrito de compras y proceder
+                    a hacer el checkout.
+                  </div>
+                  <div *ngIf="!spanish">
+                    An e-commerce web page for audio products. You can add and edit items in your shopping cart and proceed to checkout.
+                  </div>
+                </div>
+                <div class="flex justify-center space-x-1 mt-4">
+                  <div class="border-[1px] px-2 border-electricBlue rounded text-body font-semibold text-electricBlue">
+                    Angular
+                  </div>
+                  <div class="border-[1px] px-2 border-electricBlue rounded text-body font-semibold text-electricBlue">
+                    Tailwind
+                  </div>
+                </div>
+              </div>
+
+              <!-- card -->
+              <div class="w-64 h-[400px] pb-4 flex flex-col justify-between rounded-lg overflow-hidden text-center shadow-xl
+                hover:scale-110 duration-200 hover:cursor-pointer" [ngClass]="{'text-white': darkMode, 'text-gray-800': !darkMode, 'bg-navDark': darkMode, 'bg-white': !darkMode}">
+                <img src="../../assets/imágenes/medium.jpg" alt="" class="h-[159px] w-[300px]">
+                <div class="w-full text-H5 font-bold" >
+                  <a href="" class=" ">Entertainment App</a>
+                </div>
+                <div class="px-4 mb-4">
+                  <div *ngIf="spanish">
+                    Una interfaz de web app donde explorar, buscar y guardar en favoritos películas y series de TV.
+                  </div>
+                  <div *ngIf="!spanish">
+                    A web app interface where you can explore, search and bookmark movies and TV series.
+                  </div>
+                </div>
+                <div class="flex justify-center space-x-1 mt-4">
+                  <div class="border-[1px] px-2 border-electricBlue rounded text-body font-semibold text-electricBlue">
+                    Angular
+                  </div>
+                  <div class="border-[1px] px-2 border-electricBlue rounded text-body font-semibold text-electricBlue">
+                    Tailwind
+                  </div>
+                  <div class="border-[1px] px-2 border-electricBlue rounded text-body font-semibold text-electricBlue">
+                    CSS3
+                  </div>
+                </div>
+              </div>
+
+              <!-- card -->
+              <div class="w-64 h-[400px] pb-4 flex flex-col justify-between rounded-lg overflow-hidden text-center shadow-xl
+                hover:scale-110 duration-200 hover:cursor-pointer" [ngClass]="{'text-white': darkMode, 'text-gray-800': !darkMode, 'bg-navDark': darkMode, 'bg-white': !darkMode}">
+                <img src="../../assets/imágenes/foro.jpg" alt="" class="h-[159px] w-[300px]">
+                <div class="w-full text-H5 font-bold pt-4 pb-1" >
+                  <a href="">Social Media</a>
+                </div>
+                <div class="px-4 mt-3">
+                  <div *ngIf="spanish">
+                    Un prototipo de foro donde, al registrarse, se puede postear y dar likes a artículos y seguir a otros usuarios.
+                    Utiliza un servidor API y se construyó utilizando la arquitectura Redux.
+                  </div>
+                  <div *ngIf="!spanish">
+                    A forum prototype where, after signing up, you can post and like articles and follow other users.
+                    It uses an API server and was built using the Redux architecture.
+                  </div>
+                </div>
+                <div class="flex justify-center space-x-1">
+                  <div class="border-[1px] px-2 mt-4 border-electricBlue rounded text-body font-semibold text-electricBlue">
+                    Angular
+                  </div>
+                  <div class="border-[1px] px-2 mt-4 border-electricBlue rounded text-body font-semibold text-electricBlue">
+                    Redux
+                  </div>
+                  <div class="border-[1px] px-2 mt-4 border-electricBlue rounded text-body font-semibold text-electricBlue">
+                    CSS3
+                  </div>
+                  <div class="border-[1px] px-2 mt-4 border-electricBlue rounded text-body font-semibold text-electricBlue">
+                    API
+                  </div>
+                </div>
+              </div>
+
+              <!-- card -->
+              <div class="w-64 h-[400px] pb-4 flex flex-col justify-between rounded-lg overflow-hidden text-center shadow-xl
+                hover:scale-110 duration-200 hover:cursor-pointer" [ngClass]="{'text-white': darkMode, 'text-gray-800': !darkMode, 'bg-navDark': darkMode, 'bg-white': !darkMode}">
+                <img src="../../assets/imágenes/gifs.jpg" alt="" class="h-[159px] w-[300px]">
+                <div class="w-full text-H5 font-bold pt-4 pb-1" >
+                  <a href="">Gifs App</a>
+                </div>
+                <div class="px-3 pt-3">
+                  <div *ngIf="spanish">
+                    Una aplicación web que utiliza API calls para buscar tus gifs favoritos y guarda tu historial de búsquedas en una barra de navegación
+                    lateral.
+                  </div>
+                  <div *ngIf="!spanish">
+                    A web app which uses API calls to search for your favorite gifs, and save your search history in the side navigation bar.
+                  </div>
+                </div>
+                <div class="flex justify-center space-x-1 mt-8">
+                  <div class="border-[1px] px-2 mt-4 border-electricBlue rounded text-body font-semibold text-electricBlue">
+                    Angular
+                  </div>
+                  <div class="border-[1px] px-2 mt-4 border-electricBlue rounded text-body font-semibold text-electricBlue">
+                    CSS3
+                  </div>
+                  <div class="border-[1px] px-2 mt-4 border-electricBlue rounded text-body font-semibold text-electricBlue">
+                    API
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- card row -->
+            <div class="flex space-x-8 relative">
+              <!-- card -->
+              <div class="w-64 h-[400px] pb-4 flex flex-col justify-between rounded-lg overflow-hidden text-center shadow-xl
+                hover:scale-110 duration-200 hover:cursor-pointer" [ngClass]="{'text-white': darkMode, 'text-gray-800': !darkMode, 'bg-navDark': darkMode, 'bg-white': !darkMode}">
+                <img src="../../assets/imágenes/todo.jpg" alt="" class="h-[159px] w-[300px]">
+                <div class="w-full text-H5 font-bold" >
+                  <a href="">Todo App</a>
+                </div>
+                <div class="px-4">
+                  <div *ngIf="spanish">
+                    Una aplicación web para tomar nota y editar tareas cotidianas.
+                  </div>
+                  <div *ngIf="!spanish">
+                    A web app to take note of and edit everyday tasks.
+                  </div>
+                </div>
+                <div class="flex justify-center space-x-1 mt-11">
+                  <div class="border-[1px] px-2 mt-4 border-electricBlue rounded text-body font-semibold text-electricBlue">
+                    Angular
+                  </div>
+                  <div class="border-[1px] px-2 mt-4 border-electricBlue rounded text-body font-semibold text-electricBlue">
+                    CSS3
+                  </div>
+                </div>
+              </div>
+
+              <!-- card -->
+              <div class="w-64 h-[400px] pb-4 flex flex-col justify-between rounded-lg overflow-hidden text-center shadow-xl
+                hover:scale-110 duration-200 hover:cursor-pointer" [ngClass]="{'text-white': darkMode, 'text-gray-800': !darkMode, 'bg-navDark': darkMode, 'bg-white': !darkMode}">
+                <img src="../../assets/imágenes/bookmark.jpg" alt="" class="h-[159px] w-[300px]">
+                <div class="w-full text-H5 font-bold">
+                  <a href="">Bookmark Web Page</a>
+                </div>
+                <div class="px-4">
+                  <div *ngIf="spanish">
+                    Una interfaz de página web responsiva, con aplicación de Tailwind y Javascript.
+                  </div>
+                  <div *ngIf="!spanish">
+                    A responsive web interface using Tailwind and Javascript.
+                  </div>
+                </div>
+                <div class="flex justify-center space-x-1 mt-11">
+                  <div class="border-[1px] px-2 mt-4 border-electricBlue rounded text-body font-semibold text-electricBlue">
+                    Javascript
+                  </div>
+                  <div class="border-[1px] px-2 mt-4 border-electricBlue rounded text-body font-semibold text-electricBlue">
+                    Tailwind
+                  </div>
+                </div>
+              </div>
+
+              <!-- card -->
+              <div class="w-64 h-[400px] pb-4 flex flex-col justify-between rounded-lg overflow-hidden text-center shadow-xl
+                hover:scale-110 duration-200 hover:cursor-pointer" [ngClass]="{'text-white': darkMode, 'text-gray-800': !darkMode, 'bg-navDark': darkMode, 'bg-white': !darkMode}">
+                <img src="../../assets/imágenes/country.jpg" alt="" class="h-[159px] w-[300px]">
+                <div class="w-full text-H5 font-bold">
+                  <a href="">Country App</a>
+                </div>
+                <div class="px-4">
+                  <div *ngIf="spanish">
+                    Una app web que utiliza un Rest API para buscar países y ciudades con diferentes criterios de búsqueda.
+                  </div>
+                  <div *ngIf="!spanish">
+                    A web app which uses a Rest API to find countries and cities by different search criteria.
+                  </div>
+                </div>
+                <div class="flex justify-center space-x-1 mt-7">
+                  <div class="border-[1px] px-2 mt-4 border-electricBlue rounded text-body font-semibold text-electricBlue">
+                    Angular
+                  </div>
+                  <div class="border-[1px] px-2 mt-4 border-electricBlue rounded text-body font-semibold text-electricBlue">
+                    API
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="carousel flex flex-col content-center justify-center px-12 pt-0 pb-10 text-xs font-light text-center relative overflow-hidden h-[600px] lg:hidden">
+    <div class="line top-10"></div>
+    <owl-carousel-o [options]="customOptions">
+    <!-- card -->
+    <ng-template carouselSlide>
+      <div class="w-64 h-[400px] pb-4 flex flex-col justify-between rounded-lg overflow-hidden text-center shadow-xl" [ngClass]="{'text-white': darkMode, 'text-gray-800': !darkMode, 'bg-navDark': darkMode, 'bg-white': !darkMode}">
+        <img src="../../assets/imágenes/image-gallery-1.jpg" alt="" class="h-[159px] w-[300px] object-cover">
+        <div class="w-full text-H5 font-bold" >
+          <a href="" class=" ">Audiophile</a>
+        </div>
+        <div class="px-4">
+          <div *ngIf="spanish">
+            Una página de e-commerce para productos de audio. Puedes ver, agregar y editar productos en el carrito de compras y proceder
+            a hacer el checkout.
+          </div>
+          <div *ngIf="!spanish">
+            An e-commerce web page for audio products. You can add and edit items in your shopping cart and proceed to checkout.
+          </div>
+        </div>
+        <div class="flex justify-center space-x-1 mt-4">
+          <div class="border-[1px] px-2 border-electricBlue rounded text-body font-semibold text-electricBlue">
+            Angular
+          </div>
+          <div class="border-[1px] px-2 border-electricBlue rounded text-body font-semibold text-electricBlue">
+            Tailwind
+          </div>
+        </div>
+      </div>
+    </ng-template>
+    <!-- card -->
+    <ng-template carouselSlide>
+      <div class="w-64 h-[400px] pb-4 flex flex-col justify-between rounded-lg overflow-hidden text-center shadow-xl" [ngClass]="{'text-white': darkMode, 'text-gray-800': !darkMode, 'bg-navDark': darkMode, 'bg-white': !darkMode}">
+        <img src="../../assets/imágenes/medium.jpg" alt="" class="h-[159px] w-[300px] object-cover">
+        <div class="w-full text-H5 font-bold" >
+          <a href="" class=" ">Entertainment App</a>
+        </div>
+        <div class="px-4 mb-4">
+          <div *ngIf="spanish">
+            Una interfaz de web app donde explorar, buscar y guardar en favoritos películas y series de TV.
+          </div>
+          <div *ngIf="!spanish">
+            A web app interface where you can explore, search and bookmark movies and TV series.
+          </div>
+        </div>
+        <div class="flex justify-center space-x-1 mt-4">
+          <div class="border-[1px] px-2 border-electricBlue rounded text-body font-semibold text-electricBlue">
+            Angular
+          </div>
+          <div class="border-[1px] px-2 border-electricBlue rounded text-body font-semibold text-electricBlue">
+            Tailwind
+          </div>
+          <div class="border-[1px] px-2 border-electricBlue rounded text-body font-semibold text-electricBlue">
+            CSS3
+          </div>
+        </div>
+      </div>
+    </ng-template>
+    <!-- card -->
+    <ng-template carouselSlide>
+      <div class="w-64 h-[400px] pb-4 flex flex-col justify-between rounded-lg overflow-hidden text-center shadow-xl" [ngClass]="{'text-white': darkMode, 'text-gray-800': !darkMode, 'bg-navDark': darkMode, 'bg-white': !darkMode}">
+        <img src="../../assets/imágenes/foro.jpg" alt="" class="h-[159px] w-[300px] object-cover">
+        <div class="w-full text-H5 font-bold pt-4 pb-1" >
+          <a href="">Social Media</a>
+        </div>
+        <div class="px-4 mt-3">
+          <div *ngIf="spanish">
+            Un prototipo de foro donde, al registrarse, se puede postear y dar likes a artículos y seguir a otros usuarios.
+            Utiliza un servidor API y se construyó utilizando la arquitectura Redux.
+          </div>
+          <div *ngIf="!spanish">
+            A forum prototype where, after signing up, you can post and like articles and follow other users.
+            It uses an API server and was built using the Redux architecture.
+          </div>
+        </div>
+        <div class="flex justify-center space-x-1">
+          <div class="border-[1px] px-2 mt-4 border-electricBlue rounded text-body font-semibold text-electricBlue">
+            Angular
+          </div>
+          <div class="border-[1px] px-2 mt-4 border-electricBlue rounded text-body font-semibold text-electricBlue">
+            Redux
+          </div>
+          <div class="border-[1px] px-2 mt-4 border-electricBlue rounded text-body font-semibold text-electricBlue">
+            CSS3
+          </div>
+          <div class="border-[1px] px-2 mt-4 border-electricBlue rounded text-body font-semibold text-electricBlue">
+            API
+          </div>
+        </div>
+      </div>
+    </ng-template>
+    <!-- card -->
+    <ng-template carouselSlide>
+      <div class="w-64 h-[400px] pb-4 flex flex-col justify-between rounded-lg overflow-hidden text-center shadow-xl" [ngClass]="{'text-white': darkMode, 'text-gray-800': !darkMode, 'bg-navDark': darkMode, 'bg-white': !darkMode}">
+        <img src="../../assets/imágenes/gifs.jpg" alt="" class="h-[159px] w-[300px] object-cover">
+        <div class="w-full text-H5 font-bold pt-4 pb-1" >
+          <a href="">Gifs App</a>
+        </div>
+        <div class="px-3 pt-3">
+          <div *ngIf="spanish">
+            Una aplicación web que utiliza API calls para buscar tus gifs favoritos y guarda tu historial de búsquedas en una barra de navegación
+            lateral.
+          </div>
+          <div *ngIf="!spanish">
+            A web app which uses API calls to search for your favorite gifs, and save your search history in the side navigation bar.
+          </div>
+        </div>
+        <div class="flex justify-center space-x-1 mt-8">
+          <div class="border-[1px] px-2 mt-4 border-electricBlue rounded text-body font-semibold text-electricBlue">
+            Angular
+          </div>
+          <div class="border-[1px] px-2 mt-4 border-electricBlue rounded text-body font-semibold text-electricBlue">
+            CSS3
+          </div>
+          <div class="border-[1px] px-2 mt-4 border-electricBlue rounded text-body font-semibold text-electricBlue">
+            API
+          </div>
+        </div>
+      </div>
+    </ng-template>
+    <!-- card -->
+    <ng-template carouselSlide>
+      <div class="w-64 h-[400px] pb-4 flex flex-col justify-between rounded-lg overflow-hidden text-center shadow-xl" [ngClass]="{'text-white': darkMode, 'text-gray-800': !darkMode, 'bg-navDark': darkMode, 'bg-white': !darkMode}">
+        <img src="../../assets/imágenes/bookmark.jpg" alt="" class="h-[159px] w-[300px] object-cover">
+        <div class="w-full text-H5 font-bold">
+          <a href="">Bookmark Web Page</a>
+        </div>
+        <div class="px-4">
+          <div *ngIf="spanish">
+            Una interfaz de página web responsiva, con aplicación de Tailwind y Javascript.
+          </div>
+          <div *ngIf="!spanish">
+            A responsive web interface using Tailwind and Javascript.
+          </div>
+        </div>
+        <div class="flex justify-center space-x-1 mt-11">
+          <div class="border-[1px] px-2 mt-4 border-electricBlue rounded text-body font-semibold text-electricBlue">
+            Javascript
+          </div>
+          <div class="border-[1px] px-2 mt-4 border-electricBlue rounded text-body font-semibold text-electricBlue">
+            Tailwind
+          </div>
+        </div>
+      </div>
+    </ng-template>
+    <!-- card -->
+    <ng-template carouselSlide>
+      <div class="w-64 h-[400px] pb-4 flex flex-col justify-between rounded-lg overflow-hidden text-center shadow-xl" [ngClass]="{'text-white': darkMode, 'text-gray-800': !darkMode, 'bg-navDark': darkMode, 'bg-white': !darkMode}">
+        <img src="../../assets/imágenes/country.jpg" alt="" class="h-[159px] w-[300px] object-cover">
+        <div class="w-full text-H5 font-bold">
+          <a href="">Country App</a>
+        </div>
+        <div class="px-4">
+          <div *ngIf="spanish">
+            Una app web que utiliza un Rest API para buscar países y ciudades con diferentes criterios de búsqueda.
+          </div>
+          <div *ngIf="!spanish">
+            A web app which uses a Rest API to find countries and cities by different search criteria.
+          </div>
+        </div>
+        <div class="flex justify-center space-x-1 mt-7">
+          <div class="border-[1px] px-2 mt-4 border-electricBlue rounded text-body font-semibold text-electricBlue">
+            Angular
+          </div>
+          <div class="border-[1px] px-2 mt-4 border-electricBlue rounded text-body font-semibold text-electricBlue">
+            API
+          </div>
+        </div>
+      </div>
+    </ng-template>
+    </owl-carousel-o>
+  </div>
+  <div class="flex flex-col text-center items-center space-y-10 pb-40 md0:px-64 md:mt-10 md:px-40 lg:space-y-14 lg:mt-36 lg:text-H4" #contact>
+    <div *ngIf="spanish" class="text-H6 font-bold tracking-normal text-electricBlue md:text-H5 lg:text-H4">
+      CONTÁCTAME
+    </div>
+    <div *ngIf="!spanish" class="text-H6 font-bold tracking-normal text-electricBlue md:text-H5 lg:text-H4">
+      CONTACT ME
+    </div>
+    <div class="flex flex-col items-start justify-center space-y-3 lg:flex-row lg:space-y-0 lg:space-x-10 lg:items-center">
+      <div class="flex items-center space-x-2">
+        <i class="fa-regular fa-xl fa-envelope" style="color: #999999;"></i>
+        <p class="font-semibold text-body pb-1 lg:pb-0" [ngClass]="{'text-white': darkMode, 'text-gray-800': !darkMode}">vignolopbl@gmail.com</p>
+      </div>
+      <div class="flex items-center space-x-2">
+        <i class="fa-brands fa-xl fa-whatsapp" style="color: #999999;"></i>
+        <p class="font-semibold text-body pb-1 lg:pb-0" [ngClass]="{'text-white': darkMode, 'text-gray-800': !darkMode}">+5493415993831</p>
+      </div>
+      <button class="flex items-center space-x-2 hover:scale-110 hover:cursor-pointer duration-150 group">
+        <a href="https://www.linkedin.com/in/pablo-vignolo-741032293/" class="text-gris" [ngClass]="{'group-hover:text-electricBlue': darkMode, 'group-hover:text-navDark': !darkMode}"><i class="fa-brands fa-xl fa-linkedin-in"></i></a>
+        <a href="https://www.linkedin.com/in/pablo-vignolo-741032293/" class="font-semibold text-body" [ngClass]="{'text-white': darkMode, 'text-gray-800': !darkMode}">https://www.linkedin.com/in/pablo-vignolo-741032293/</a>
+      </button>
+      <div class="flex items-center space-x-2 hover:scale-110 hover:cursor-pointer duration-150 group">
+        <a href="https://github.com/vigpablo" class="text-gris" [ngClass]="{'group-hover:text-electricBlue': darkMode, 'group-hover:text-navDark': !darkMode}"><i class="fa-brands fa-xl fa-github"></i></a>
+        <a href="https://github.com/vigpablo" class="font-semibold text-body" [ngClass]="{'text-white': darkMode, 'text-gray-800': !darkMode}">https://github.com/vigpablo</a>
+      </div>
+    </div>
+  </div>
+
+</body>

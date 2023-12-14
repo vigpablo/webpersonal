@@ -1,1 +1,74 @@
-/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+.spacer{
+  flex: 1 1 auto;
+}
+
+.header{
+  width: 100%;
+  background: linear-gradient(-45deg, #0eada5, #024ef2);
+  /* background: linear-gradient(-45deg, #0eada5, #017e8a, #027ca8); */
+  background-size: 400%;
+  animation: animate 5s infinite alternate;
+  transform: skewY(6deg);
+
+  @apply h-[400px] md:h-[480px]
+}
+
+.line {
+  width: 200%;
+  margin-left: -100px;
+  background: linear-gradient(45deg,#9df4fa, #84eff5, #84eff5, #24a5bf);
+  background-size: 400%;
+  transform: skewY(-4deg);
+  animation: animate 5s infinite alternate;
+  z-index: 0;
+
+  @apply absolute bottom-36 h-[400px] lg:h-[600px] lg:bottom-40
+
+}
+
+@keyframes animate {
+  0%{
+    background-position: left;
+  }
+  100%{
+    background-position: right;
+  }
+}
+
+.profile {
+  border-radius: 0% 100% 0% 100% / 0% 19% 0% 23%
+}
+
+
+.carousel .owl-prev {
+  background: #e1e3e6!important;
+  color: #222 !important;
+  height: 40px !important;
+  width: 40px !important;
+  border-radius: 25% !important;
+
+  @apply text-2xl top-1/2 -left-8 -translate-y-1/2
+   absolute z-20 opacity-40 hover:opacity-100 duration-200
+}
+
+
+.carousel .owl-next {
+  background: #e1e3e6!important;
+  color: #222 !important;
+  height: 40px !important;
+  width: 40px !important;
+  border-radius: 25% !important;
+
+  @apply text-2xl top-1/2 -right-8 -translate-y-1/2
+   absolute z-20 opacity-40 hover:opacity-100 duration-200
+}
+
+
