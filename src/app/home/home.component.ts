@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 
 @Component({
@@ -8,10 +9,16 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
 })
 export class HomeComponent implements OnInit{
 
+  constructor(private router: Router) {}
+
   @ViewChild('skills') skills!: ElementRef
   @ViewChild('background') background!: ElementRef
   @ViewChild('projects') projects!: ElementRef
   @ViewChild('contact') contact!: ElementRef
+
+  irPag() {
+    this.router.navigateByUrl('https://audiophile-pablovignolo.vercel.app/home')
+  }
 
   spanish:boolean = false
 
@@ -89,19 +96,25 @@ export class HomeComponent implements OnInit{
       100: {
         items: 1
       },
-      350: {
+      390: {
         items: 1.5
       },
-      500: {
+      540: {
         items: 2
       },
-      740: {
+      680: {
         items: 2.5
+      },
+      840: {
+        items: 3
       },
       940: {
         items: 3.5
       },
-      1160: {
+      1300: {
+        items: 4
+      },
+      1400: {
         items: 4.5
       }
     },
