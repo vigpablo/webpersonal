@@ -12,7 +12,8 @@
       <iframe *ngIf="cvEng" src="../../assets/CVeng.pdf" frameborder="0"></iframe>
     </div>
 
-    <div *ngIf="cv || cvEng" class="bg-black opacity-60 h-full w-full bg-cover absolute z-30" (click)="clickOut()"></div>
+    <div *ngIf="cv || cvEng" class="bg-black opacity-60 h-full w-full bg-cover absolute z-30" (click)="clickOut()">
+    </div>
 
     <div class="overflow-hidden flex flex-col items-center w-full">
 
@@ -22,16 +23,19 @@
         <nav class="flex flex-col items-center absolute top-14 md:right-1/3 xl:pr-[90px]">
           <div class="nav-div">
             <div class="flex space-x-2">
-              <img src="../../assets/flags/esp.jpg" alt="" class="flag" [ngClass]="{'outline outline-2 outline-gray-300 rounded-sm': spanish}"  (click)="toSpanish()">
-              <img src="../../assets/flags/brit.jpg" alt="" class="flag" [ngClass]="{'outline outline-2 outline-gray-300 rounded-sm': !spanish}"  (click)="toEnglish()">
+              <img src="../../assets/flags/esp.jpg" alt="" class="flag"
+                [ngClass]="{'outline outline-2 outline-gray-300 rounded-sm': spanish}" (click)="toSpanish()">
+              <img src="../../assets/flags/brit.jpg" alt="" class="flag"
+                [ngClass]="{'outline outline-2 outline-gray-300 rounded-sm': !spanish}" (click)="toEnglish()">
             </div>
-            <div *ngIf="spanish; else english" class="flex space-x-2 text-sm md0:space-x-10 md:text-base md:space-x-[82px]">
+            <div *ngIf="spanish; else english"
+              class="flex space-x-2 text-sm md0:space-x-10 md:text-base md:space-x-[82px]">
               <div class="menu-item" (click)="aboutFunction()">SOBRE MI</div>
               <div class="menu-item" (click)="skillsFunction()">HABILIDADES</div>
               <div class="menu-item" (click)="projectsFunction()">PROYECTOS</div>
               <div class="menu-item" (click)="contactFunction()">CONTACTO</div>
             </div>
-            <ng-template  #english>
+            <ng-template #english>
               <div class="flex space-x-4 text-sm md0:space-x-16 md:text-base md:space-x-[105px]">
                 <div class="menu-item" (click)="aboutFunction()">ABOUT ME</div>
                 <div class="menu-item" (click)="skillsFunction()">SKILLS</div>
@@ -48,19 +52,23 @@
         <div class="intro" [ngClass]="{'text-white': darkMode, 'text-gray-700': !darkMode}">
           <div *ngIf="spanish">
             <p>Hola, soy <span class="text-electricBlue font-medium">Pablo Vignolo</span>,<br>
-              un desarrollador web front-end <br>de Rosario, Argentina. <br>Me gusta construir interfaces <br>y aplicaciones web!</p>
+              un desarrollador web front-end <br>de Rosario, Argentina. <br>Me gusta construir interfaces <br>y
+              aplicaciones web!</p>
           </div>
           <div *ngIf="!spanish">
             <p>Hi, I'm <span class="text-electricBlue font-medium">Pablo Vignolo</span>,
-                a front-end <br>web developer based in Rosario, Argentina.<br> I love to build interfaces and web apps!</p>
+              a front-end <br>web developer based in Rosario, Argentina.<br> I love to build interfaces and web apps!
+            </p>
           </div>
           <div class="text-base font-normal pt-10 md:pt-16 md:text-lg">
             <div *ngIf="spanish">
-              Contactarse &nbsp;<i class="em em-point_right" aria-role="presentation" aria-label="WHITE RIGHT POINTING BACKHAND INDEX"></i>&nbsp;&nbsp;
+              Contactarse &nbsp;<i class="em em-point_right" aria-role="presentation"
+                aria-label="WHITE RIGHT POINTING BACKHAND INDEX"></i>&nbsp;&nbsp;
               <span>vignolopbl@gmail.com</span>
             </div>
             <div *ngIf="!spanish">
-              Get in touch &nbsp;<i class="em em-point_right" aria-role="presentation" aria-label="WHITE RIGHT POINTING BACKHAND INDEX"></i>&nbsp;&nbsp;
+              Get in touch &nbsp;<i class="em em-point_right" aria-role="presentation"
+                aria-label="WHITE RIGHT POINTING BACKHAND INDEX"></i>&nbsp;&nbsp;
               <span>vignolopbl@gmail.com</span>
             </div>
           </div>
@@ -77,9 +85,8 @@
           </div>
           <div *ngIf="spanish" class="text-sm flex flex-col items-center lg:text-body">
             <p>
-              Me gradué en Licenciatura en Comunicación Social en la Univerdad Nacional de Rosario
-              y me desempeñé en varias empresas de telecomunicaciones. Sin embargo, luego de darme cuenta
-              que no era lo que buscaba y de probar otros emprendimientos, descubrí en el desarrollo web
+              Me gradué en Licenciatura en Comunicación Social en la Universidad Nacional de Rosario
+              y me desempeñé en varias empresas de telecomunicaciones. Sin embargo, descubrí en el desarrollo web
               una oportunidad para unir mi gusto por la tecnología y la aplicación de mis conocimientos
               para lograr una comunicación clara y certera. El desarrollo web se convirtió en mi lugar favorito
               para desarrollarme profesionalmente, en donde encontré una verdadera vocación. Mi objetivo es
@@ -88,21 +95,23 @@
               Cuando no estoy frente a un monitor, me gusta nadar, jugar al tenis o leer.
             </p>
             <div class="pt-6 w-28 font-semibold">
-              <p class="flex items-end hover:cursor-pointer" (click)="cvFunc()">Ver mi CV &nbsp;<i class="material-icons">arrow_forward</i></p>
+              <p class="flex items-end hover:cursor-pointer" (click)="cvFunc()">Ver mi CV &nbsp;<i
+                  class="material-icons">arrow_forward</i></p>
             </div>
           </div>
           <div *ngIf="!spanish" class="text-sm flex flex-col items-center lg:text-body">
             <p>
               I graduated in Communication Science from Rosario National University and I performed
-              in several telecomunications companies. However, after realizing it was not what I was really
-              looking for, I found in web development an oportunity to bridge my
-              taste for technology with the implementation of my knowledge to achieve a simple, yet clear and accurate communication.
+              in several telecomunications companies. However, I found in web development an oportunity to bridge my
+              taste for technology with the implementation of my knowledge to achieve a simple, yet clear and accurate
+              communication.
               Today, web development became my place to grow professionally and where I found my true vocation.
               My objective is to build efficient web products that offer attractive user experiences.
               When I'm not in front of a computer screen, I like to swim, play tennis or read a book.
             </p>
             <div class="pt-6 w-36 font-semibold">
-              <p class="flex items-end hover:cursor-pointer" (click)="cvEngFunc()">View my resume &nbsp;<i class="material-icons">arrow_forward</i></p>
+              <p class="flex items-end hover:cursor-pointer" (click)="cvEngFunc()">View my resume &nbsp;<i
+                  class="material-icons">arrow_forward</i></p>
             </div>
 
           </div>
@@ -112,10 +121,10 @@
 
         <div class="flex flex-col items-center pt-20 md:pt-36 text-gray-500 space-y-10" #skills>
           <div *ngIf="spanish" class="habilidades-title">
-              HABILIDADES
+            HABILIDADES
           </div>
           <div *ngIf="!spanish" class="habilidades-title">
-              SKILLS
+            SKILLS
           </div>
           <!-- icons container -->
           <div class="skills-icons">
@@ -174,18 +183,21 @@
             <!-- card row -->
             <div class="flex space-x-8 relative">
               <!-- card -->
-              <a href="https://audiophile-pablovignolo.vercel.app/home" class="card" [ngClass]="{'text-white': darkMode, 'text-gray-800': !darkMode, 'bg-navDark': darkMode, 'bg-gray-50': !darkMode}">
-                <img src="../../assets/imágenes/image-gallery-1.jpg" alt="" class="h-[159px] w-[300px]" >
-                <div class="w-full text-H5 font-bold" >
+              <a href="https://pablovignolo-audiophile.vercel.app/home" class="card"
+                [ngClass]="{'text-white': darkMode, 'text-gray-800': !darkMode, 'bg-navDark': darkMode, 'bg-gray-50': !darkMode}">
+                <img src="../../assets/imágenes/image-gallery-1.jpg" alt="" class="h-[159px] w-[300px]">
+                <div class="w-full text-H5 font-bold">
                   <p>Audiophile</p>
                 </div>
                 <div class="px-4 h-[80px]">
                   <div *ngIf="spanish">
-                    Una página de e-commerce responsiva para productos de audio. Puedes ver, agregar y editar productos en el carrito de compras y proceder
+                    Una página de e-commerce responsiva para productos de audio. Puedes ver, agregar y editar productos
+                    en el carrito de compras y proceder
                     a hacer el checkout.
                   </div>
                   <div *ngIf="!spanish">
-                    A responsive e-commerce web page for audio products. You can add and edit items in your shopping cart and proceed to checkout.
+                    A responsive e-commerce web page for audio products. You can add and edit items in your shopping
+                    cart and proceed to checkout.
                   </div>
                 </div>
                 <div class="flex justify-center space-x-1">
@@ -199,14 +211,16 @@
               </a>
 
               <!-- card -->
-              <a href="https://movieapp-pablovignolo.netlify.app" class="card" [ngClass]="{'text-white': darkMode, 'text-gray-800': !darkMode, 'bg-navDark': darkMode, 'bg-gray-50': !darkMode}">
+              <a href="https://movieapp-pablovignolo.netlify.app" class="card"
+                [ngClass]="{'text-white': darkMode, 'text-gray-800': !darkMode, 'bg-navDark': darkMode, 'bg-gray-50': !darkMode}">
                 <img src="../../assets/imágenes/medium.jpg" alt="" class="h-[159px] w-[300px]">
-                <div class="w-full text-H5 font-bold" >
+                <div class="w-full text-H5 font-bold">
                   <p>Entertainment App</p>
                 </div>
                 <div class="px-4 h-[80px]">
                   <div *ngIf="spanish">
-                    Una interfaz responsiva de web app donde explorar, buscar y guardar en favoritos películas y series de TV.
+                    Una interfaz responsiva de web app donde explorar, buscar y guardar en favoritos películas y series
+                    de TV.
                   </div>
                   <div *ngIf="!spanish">
                     A responsive web app interface where you can explore, search and bookmark movies and TV series.
@@ -226,14 +240,16 @@
               </a>
 
               <!-- card -->
-              <a href="https://mediumclone-pablovignolo.vercel.app/" class="card" [ngClass]="{'text-white': darkMode, 'text-gray-800': !darkMode, 'bg-navDark': darkMode, 'bg-gray-50': !darkMode}">
+              <a href="https://mediumclone-pablovignolo.vercel.app/" class="card"
+                [ngClass]="{'text-white': darkMode, 'text-gray-800': !darkMode, 'bg-navDark': darkMode, 'bg-gray-50': !darkMode}">
                 <img src="../../assets/imágenes/foro.jpg" alt="" class="h-[159px] w-[300px]">
-                <div class="w-full text-H5 font-bold" >
+                <div class="w-full text-H5 font-bold">
                   <p>Social Media</p>
                 </div>
                 <div class="px-4 h-[80px]">
                   <div *ngIf="spanish">
-                    Un prototipo de foro donde, al registrarse, se puede postear y dar likes a artículos y seguir a otros usuarios.
+                    Un prototipo de foro donde, al registrarse, se puede postear y dar likes a artículos y seguir a
+                    otros usuarios.
                     Utiliza un servidor API y se construyó utilizando la arquitectura Redux.
                   </div>
                   <div *ngIf="!spanish">
@@ -258,18 +274,21 @@
               </a>
 
               <!-- card -->
-              <a href="https://gifsapp-pablovignolo.vercel.app/" class="card" [ngClass]="{'text-white': darkMode, 'text-gray-800': !darkMode, 'bg-navDark': darkMode, 'bg-gray-50': !darkMode}">
+              <a href="https://gifsapp-pablovignolo.vercel.app/" class="card"
+                [ngClass]="{'text-white': darkMode, 'text-gray-800': !darkMode, 'bg-navDark': darkMode, 'bg-gray-50': !darkMode}">
                 <img src="../../assets/imágenes/gifs.jpg" alt="" class="h-[159px] w-[300px]">
-                <div class="w-full text-H5 font-bold" >
+                <div class="w-full text-H5 font-bold">
                   <p>Gifs App</p>
                 </div>
                 <div class="px-4 h-[80px]">
                   <div *ngIf="spanish">
-                    Una aplicación web de escritorio que utiliza API calls para buscar tus gifs favoritos y guarda tu historial de búsquedas en una barra de navegación
+                    Una aplicación web de escritorio que utiliza API calls para buscar tus gifs favoritos y guarda tu
+                    historial de búsquedas en una barra de navegación
                     lateral.
                   </div>
                   <div *ngIf="!spanish">
-                    A desktop web app which uses API calls to search for your favorite gifs, and save your search history in the side navigation bar.
+                    A desktop web app which uses API calls to search for your favorite gifs, and save your search
+                    history in the side navigation bar.
                   </div>
                 </div>
                 <div class="flex justify-center space-x-1">
@@ -290,9 +309,10 @@
             <!-- card row -->
             <div class="flex space-x-8 relative">
               <!-- card -->
-              <a href="https://todoapp-pablovignolo.vercel.app/" class="card" [ngClass]="{'text-white': darkMode, 'text-gray-800': !darkMode, 'bg-navDark': darkMode, 'bg-gray-50': !darkMode}">
+              <a href="https://todoapp-pablovignolo.vercel.app/" class="card"
+                [ngClass]="{'text-white': darkMode, 'text-gray-800': !darkMode, 'bg-navDark': darkMode, 'bg-gray-50': !darkMode}">
                 <img src="../../assets/imágenes/todo.jpg" alt="" class="h-[159px] w-[300px]">
-                <div class="w-full text-H5 font-bold" >
+                <div class="w-full text-H5 font-bold">
                   <p>Todo App</p>
                 </div>
                 <div class="px-4 h-[80px]">
@@ -314,7 +334,8 @@
               </a>
 
               <!-- card -->
-              <a href="https://bookmark-pablovignolo.netlify.app" class="card" [ngClass]="{'text-white': darkMode, 'text-gray-800': !darkMode, 'bg-navDark': darkMode, 'bg-gray-50': !darkMode}">
+              <a href="https://bookmark-pablovignolo.netlify.app" class="card"
+                [ngClass]="{'text-white': darkMode, 'text-gray-800': !darkMode, 'bg-navDark': darkMode, 'bg-gray-50': !darkMode}">
                 <img src="../../assets/imágenes/bookmark.jpg" alt="" class="h-[159px] w-[300px]">
                 <div class="w-full text-H5 font-bold">
                   <p>Bookmark Web Page</p>
@@ -338,14 +359,16 @@
               </a>
 
               <!-- card -->
-              <a href="https://countryapp-pablovignolo.vercel.app/" class="card" [ngClass]="{'text-white': darkMode, 'text-gray-800': !darkMode, 'bg-navDark': darkMode, 'bg-gray-50': !darkMode}">
+              <a href="https://countryapp-pablovignolo.vercel.app/" class="card"
+                [ngClass]="{'text-white': darkMode, 'text-gray-800': !darkMode, 'bg-navDark': darkMode, 'bg-gray-50': !darkMode}">
                 <img src="../../assets/imágenes/country.jpg" alt="" class="h-[159px] w-[300px]">
                 <div class="w-full text-H5 font-bold">
                   <p>Country App</p>
                 </div>
                 <div class="px-4 h-[80px]">
                   <div *ngIf="spanish">
-                    Una aplicación web de escritorio que utiliza un Rest API para buscar países y ciudades con diferentes criterios de búsqueda.
+                    Una aplicación web de escritorio que utiliza un Rest API para buscar países y ciudades con
+                    diferentes criterios de búsqueda.
                   </div>
                   <div *ngIf="!spanish">
                     A desktop web app which uses a Rest API to find countries and cities by different search criteria.
@@ -368,201 +391,216 @@
   </div>
 
   <div class="relative">
-    <div *ngIf="cv || cvEng" class="bg-black opacity-60 h-full w-full bg-cover absolute z-30" (click)="clickOut()"></div>
+    <div *ngIf="cv || cvEng" class="bg-black opacity-60 h-full w-full bg-cover absolute z-30" (click)="clickOut()">
+    </div>
     <!-- carousel -->
     <div class="carousel">
       <owl-carousel-o [options]="customOptions">
-      <!-- card -->
-      <ng-template carouselSlide>
-        <a href="https://audiophile-pablovignolo.vercel.app/home" class="carousel-card ml-1 sm:ml-0" [ngClass]="{'text-white': darkMode, 'text-gray-800': !darkMode, 'bg-navDark': darkMode, 'bg-gray-50': !darkMode}">
-          <img src="../../assets/imágenes/image-gallery-1.jpg" alt="" class="h-[159px] w-[300px] object-cover">
-          <p class="w-full text-H5 font-bold" >
-            Audiophile
-          </p>
-          <div class="px-4 h-[80px]">
-            <div *ngIf="spanish">
-              Una página de e-commerce responsiva para productos de audio. Puedes ver, agregar y editar productos en el carrito de compras y proceder
-              a hacer el checkout.
+        <!-- card -->
+        <ng-template carouselSlide>
+          <a href="https://pablovignolo-audiophile.vercel.app/home" class="carousel-card ml-1 sm:ml-0"
+            [ngClass]="{'text-white': darkMode, 'text-gray-800': !darkMode, 'bg-navDark': darkMode, 'bg-gray-50': !darkMode}">
+            <img src="../../assets/imágenes/image-gallery-1.jpg" alt="" class="h-[159px] w-[300px] object-cover">
+            <p class="w-full text-H5 font-bold">
+              Audiophile
+            </p>
+            <div class="px-4 h-[80px]">
+              <div *ngIf="spanish">
+                Una página de e-commerce responsiva para productos de audio. Puedes ver, agregar y editar productos en
+                el carrito de compras y proceder
+                a hacer el checkout.
+              </div>
+              <div *ngIf="!spanish">
+                An responsive e-commerce web page for audio products. You can add and edit items in your shopping cart
+                and proceed to checkout.
+              </div>
             </div>
-            <div *ngIf="!spanish">
-              An responsive e-commerce web page for audio products. You can add and edit items in your shopping cart and proceed to checkout.
+            <div class="flex justify-center space-x-1">
+              <div class="label">
+                Angular
+              </div>
+              <div class="label">
+                Tailwind
+              </div>
             </div>
-          </div>
-          <div class="flex justify-center space-x-1">
-            <div class="label">
-              Angular
+          </a>
+        </ng-template>
+        <!-- card -->
+        <ng-template carouselSlide>
+          <a href="https://movieapp-pablovignolo.netlify.app" class="carousel-card"
+            [ngClass]="{'text-white': darkMode, 'text-gray-800': !darkMode, 'bg-navDark': darkMode, 'bg-gray-50': !darkMode}">
+            <img src="../../assets/imágenes/medium.jpg" alt="" class="h-[159px] w-[300px] object-cover">
+            <p class="w-full text-H5 font-bold">
+              Entertainment App
+            </p>
+            <div class="px-4 h-[80px]">
+              <div *ngIf="spanish">
+                Una interfaz de aplicación web responsiva donde explorar, buscar y guardar en favoritos películas y
+                series de TV.
+              </div>
+              <div *ngIf="!spanish">
+                A responsive web app interface where you can explore, search and bookmark movies and TV series.
+              </div>
             </div>
-            <div class="label">
-              Tailwind
+            <div class="flex justify-center space-x-1">
+              <div class="label">
+                Angular
+              </div>
+              <div class="label">
+                Tailwind
+              </div>
+              <div class="label">
+                CSS3
+              </div>
             </div>
-          </div>
-        </a>
-      </ng-template>
-      <!-- card -->
-      <ng-template carouselSlide>
-        <a href="https://movieapp-pablovignolo.netlify.app" class="carousel-card" [ngClass]="{'text-white': darkMode, 'text-gray-800': !darkMode, 'bg-navDark': darkMode, 'bg-gray-50': !darkMode}">
-          <img src="../../assets/imágenes/medium.jpg" alt="" class="h-[159px] w-[300px] object-cover">
-          <p class="w-full text-H5 font-bold" >
-            Entertainment App
-          </p>
-          <div class="px-4 h-[80px]">
-            <div *ngIf="spanish">
-              Una interfaz de aplicación web responsiva donde explorar, buscar y guardar en favoritos películas y series de TV.
+          </a>
+        </ng-template>
+        <!-- card -->
+        <ng-template carouselSlide>
+          <a href="https://mediumclone-pablovignolo.vercel.app/" class="carousel-card"
+            [ngClass]="{'text-white': darkMode, 'text-gray-800': !darkMode, 'bg-navDark': darkMode, 'bg-gray-50': !darkMode}">
+            <img src="../../assets/imágenes/foro.jpg" alt="" class="h-[159px] w-[300px] object-cover">
+            <p class="w-full text-H5 font-bold">
+              Social Media
+            </p>
+            <div class="px-4 h-[80px]">
+              <div *ngIf="spanish">
+                Un prototipo de foro donde, al registrarse, se puede postear y dar likes a artículos y seguir a otros
+                usuarios.
+                Utiliza un servidor API y se construyó utilizando la arquitectura Redux.
+              </div>
+              <div *ngIf="!spanish">
+                A forum prototype where, after signing up, you can post and like articles and follow other users.
+                It uses an API server and was built using the Redux architecture.
+              </div>
             </div>
-            <div *ngIf="!spanish">
-              A responsive web app interface where you can explore, search and bookmark movies and TV series.
+            <div class="flex justify-center space-x-1">
+              <div class="label">
+                Angular
+              </div>
+              <div class="label">
+                Redux
+              </div>
+              <div class="label">
+                CSS3
+              </div>
+              <div class="label">
+                API
+              </div>
             </div>
-          </div>
-          <div class="flex justify-center space-x-1">
-            <div class="label">
-              Angular
+          </a>
+        </ng-template>
+        <!-- card -->
+        <ng-template carouselSlide>
+          <a href="https://gifsapp-pablovignolo.vercel.app/" class="carousel-card"
+            [ngClass]="{'text-white': darkMode, 'text-gray-800': !darkMode, 'bg-navDark': darkMode, 'bg-gray-50': !darkMode}">
+            <img src="../../assets/imágenes/gifs.jpg" alt="" class="h-[159px] w-[300px] object-cover">
+            <p class="w-full text-H5 font-bold">
+              Gifs App
+            </p>
+            <div class="px-4 h-[80px]">
+              <div *ngIf="spanish">
+                Una aplicación web de escritorio que utiliza API calls para buscar tus gifs favoritos y guarda tu
+                historial de búsquedas en una barra de navegación
+                lateral.
+              </div>
+              <div *ngIf="!spanish">
+                A desktop web app to take note of and edit everyday tasks.
+              </div>
             </div>
-            <div class="label">
-              Tailwind
+            <div class="flex justify-center space-x-1">
+              <div class="label">
+                Angular
+              </div>
+              <div class="label">
+                CSS3
+              </div>
+              <div class="label">
+                API
+              </div>
             </div>
-            <div class="label">
-              CSS3
+          </a>
+        </ng-template>
+        <!-- card -->
+        <ng-template carouselSlide>
+          <a href="https://todoapp-pablovignolo.vercel.app/" class="carousel-card"
+            [ngClass]="{'text-white': darkMode, 'text-gray-800': !darkMode, 'bg-navDark': darkMode, 'bg-gray-50': !darkMode}">
+            <img src="../../assets/imágenes/todo.jpg" alt="" class="h-[159px] w-[300px] object-cover">
+            <div class="w-full text-H5 font-bold">
+              Todo App
             </div>
-          </div>
-        </a>
-      </ng-template>
-      <!-- card -->
-      <ng-template carouselSlide>
-        <a href="https://mediumclone-pablovignolo.vercel.app/" class="carousel-card" [ngClass]="{'text-white': darkMode, 'text-gray-800': !darkMode, 'bg-navDark': darkMode, 'bg-gray-50': !darkMode}">
-          <img src="../../assets/imágenes/foro.jpg" alt="" class="h-[159px] w-[300px] object-cover">
-          <p class="w-full text-H5 font-bold">
-            Social Media
-          </p>
-          <div class="px-4 h-[80px]">
-            <div *ngIf="spanish">
-              Un prototipo de foro donde, al registrarse, se puede postear y dar likes a artículos y seguir a otros usuarios.
-              Utiliza un servidor API y se construyó utilizando la arquitectura Redux.
+            <div class="px-4 h-[80px]">
+              <div *ngIf="spanish">
+                Una aplicación web para tomar nota y editar tareas cotidianas.
+              </div>
+              <div *ngIf="!spanish">
+                A web app which uses API calls to search for your favorite gifs, and save your search history in the
+                side navigation bar.
+              </div>
             </div>
-            <div *ngIf="!spanish">
-              A forum prototype where, after signing up, you can post and like articles and follow other users.
-              It uses an API server and was built using the Redux architecture.
+            <div class="flex justify-center space-x-1">
+              <div class="label">
+                Angular
+              </div>
+              <div class="label">
+                CSS3
+              </div>
             </div>
-          </div>
-          <div class="flex justify-center space-x-1">
-            <div class="label">
-              Angular
+          </a>
+        </ng-template>
+        <!-- card -->
+        <ng-template carouselSlide>
+          <a href="https://bookmark-pablovignolo.netlify.app" class="carousel-card"
+            [ngClass]="{'text-white': darkMode, 'text-gray-800': !darkMode, 'bg-navDark': darkMode, 'bg-gray-50': !darkMode}">
+            <img src="../../assets/imágenes/bookmark.jpg" alt="" class="h-[159px] w-[300px] object-cover">
+            <div class="w-full text-H5 font-bold">
+              Bookmark Web Page
             </div>
-            <div class="label">
-              Redux
+            <div class="px-4 h-[80px]">
+              <div *ngIf="spanish">
+                Una interfaz de página web responsiva, con aplicación de Tailwind y Javascript.
+              </div>
+              <div *ngIf="!spanish">
+                A responsive web interface using Tailwind and Javascript.
+              </div>
             </div>
-            <div class="label">
-              CSS3
+            <div class="flex justify-center space-x-1">
+              <div class="label">
+                Javascript
+              </div>
+              <div class="label">
+                Tailwind
+              </div>
             </div>
-            <div class="label">
-              API
+          </a>
+        </ng-template>
+        <!-- card -->
+        <ng-template carouselSlide>
+          <a href="https://countryapp-pablovignolo.vercel.app/" class="carousel-card"
+            [ngClass]="{'text-white': darkMode, 'text-gray-800': !darkMode, 'bg-navDark': darkMode, 'bg-gray-50': !darkMode}">
+            <img src="../../assets/imágenes/country.jpg" alt="" class="h-[159px] w-[300px] object-cover">
+            <p class="w-full text-H5 font-bold">
+              Country App
+            </p>
+            <div class="px-4 h-[80px]">
+              <div *ngIf="spanish">
+                Una app web de escritorio que utiliza un Rest API para buscar países y ciudades con diferentes criterios
+                de búsqueda.
+              </div>
+              <div *ngIf="!spanish">
+                A desktop web app which uses a Rest API to find countries and cities by different search criteria.
+              </div>
             </div>
-          </div>
-        </a>
-      </ng-template>
-      <!-- card -->
-      <ng-template carouselSlide>
-        <a href="https://gifsapp-pablovignolo.vercel.app/" class="carousel-card" [ngClass]="{'text-white': darkMode, 'text-gray-800': !darkMode, 'bg-navDark': darkMode, 'bg-gray-50': !darkMode}">
-          <img src="../../assets/imágenes/gifs.jpg" alt="" class="h-[159px] w-[300px] object-cover">
-          <p class="w-full text-H5 font-bold">
-            Gifs App
-          </p>
-          <div class="px-4 h-[80px]">
-            <div *ngIf="spanish">
-              Una aplicación web de escritorio que utiliza API calls para buscar tus gifs favoritos y guarda tu historial de búsquedas en una barra de navegación
-              lateral.
+            <div class="flex justify-center space-x-1">
+              <div class="label">
+                Angular
+              </div>
+              <div class="label">
+                API
+              </div>
             </div>
-            <div *ngIf="!spanish">
-              A desktop web app to take note of and edit everyday tasks.
-            </div>
-          </div>
-          <div class="flex justify-center space-x-1">
-            <div class="label">
-              Angular
-            </div>
-            <div class="label">
-              CSS3
-            </div>
-            <div class="label">
-              API
-            </div>
-          </div>
-        </a>
-      </ng-template>
-      <!-- card -->
-      <ng-template carouselSlide>
-        <a href="https://todoapp-pablovignolo.vercel.app/" class="carousel-card" [ngClass]="{'text-white': darkMode, 'text-gray-800': !darkMode, 'bg-navDark': darkMode, 'bg-gray-50': !darkMode}">
-          <img src="../../assets/imágenes/todo.jpg" alt="" class="h-[159px] w-[300px] object-cover">
-          <div class="w-full text-H5 font-bold">
-            Todo App
-          </div>
-          <div class="px-4 h-[80px]">
-            <div *ngIf="spanish">
-              Una aplicación web para tomar nota y editar tareas cotidianas.
-            </div>
-            <div *ngIf="!spanish">
-              A web app which uses API calls to search for your favorite gifs, and save your search history in the side navigation bar.
-            </div>
-          </div>
-          <div class="flex justify-center space-x-1">
-            <div class="label">
-              Angular
-            </div>
-            <div class="label">
-              CSS3
-            </div>
-          </div>
-        </a>
-      </ng-template>
-      <!-- card -->
-      <ng-template carouselSlide>
-        <a href="https://bookmark-pablovignolo.netlify.app" class="carousel-card" [ngClass]="{'text-white': darkMode, 'text-gray-800': !darkMode, 'bg-navDark': darkMode, 'bg-gray-50': !darkMode}">
-          <img src="../../assets/imágenes/bookmark.jpg" alt="" class="h-[159px] w-[300px] object-cover">
-          <div class="w-full text-H5 font-bold">
-            Bookmark Web Page
-          </div>
-          <div class="px-4 h-[80px]">
-            <div *ngIf="spanish">
-              Una interfaz de página web responsiva, con aplicación de Tailwind y Javascript.
-            </div>
-            <div *ngIf="!spanish">
-              A responsive web interface using Tailwind and Javascript.
-            </div>
-          </div>
-          <div class="flex justify-center space-x-1">
-            <div class="label">
-              Javascript
-            </div>
-            <div class="label">
-              Tailwind
-            </div>
-          </div>
-        </a>
-      </ng-template>
-      <!-- card -->
-      <ng-template carouselSlide>
-        <a href="https://countryapp-pablovignolo.vercel.app/" class="carousel-card" [ngClass]="{'text-white': darkMode, 'text-gray-800': !darkMode, 'bg-navDark': darkMode, 'bg-gray-50': !darkMode}">
-          <img src="../../assets/imágenes/country.jpg" alt="" class="h-[159px] w-[300px] object-cover">
-          <p class="w-full text-H5 font-bold">
-            Country App
-          </p>
-          <div class="px-4 h-[80px]">
-            <div *ngIf="spanish">
-              Una app web de escritorio que utiliza un Rest API para buscar países y ciudades con diferentes criterios de búsqueda.
-            </div>
-            <div *ngIf="!spanish">
-              A desktop web app which uses a Rest API to find countries and cities by different search criteria.
-            </div>
-          </div>
-          <div class="flex justify-center space-x-1">
-            <div class="label">
-              Angular
-            </div>
-            <div class="label">
-              API
-            </div>
-          </div>
-        </a>
-      </ng-template>
+          </a>
+        </ng-template>
       </owl-carousel-o>
     </div>
 
@@ -582,7 +620,8 @@
           <div class="hidden lg:block">
             <i class="fa-regular fa-1x fa-envelope" style="color: #999999;"></i>
           </div>
-          <p class="font-semibold text-body pb-1 lg:pb-0" [ngClass]="{'text-white': darkMode, 'text-gray-800': !darkMode}">vignolopbl@gmail.com</p>
+          <p class="font-semibold text-body pb-1 lg:pb-0"
+            [ngClass]="{'text-white': darkMode, 'text-gray-800': !darkMode}">vignolopbl@gmail.com</p>
         </div>
         <div class="flex items-center space-x-2">
           <div class="lg:hidden">
@@ -591,20 +630,27 @@
           <div class="hidden lg:block">
             <i class="fa-brands fa-1x fa-whatsapp" style="color: #999999;"></i>
           </div>
-          <p class="font-semibold text-body pb-1 lg:pb-0" [ngClass]="{'text-white': darkMode, 'text-gray-800': !darkMode}">+5493415993831</p>
+          <p class="font-semibold text-body pb-1 lg:pb-0"
+            [ngClass]="{'text-white': darkMode, 'text-gray-800': !darkMode}">+5493415993831</p>
         </div>
         <button class="flex items-center space-x-2 hover:scale-110 hover:cursor-pointer duration-150 group">
-          <a href="https://www.linkedin.com/in/pablo-vignolo-741032293/" class="text-gris group-hover:text-electricBlue lg:hidden"><i class="fa-brands fa-xl fa-linkedin-in"></i></a>
-          <a href="https://www.linkedin.com/in/pablo-vignolo-741032293/" class="text-gris group-hover:text-electricBlue hidden lg:block"><i class="fa-brands fa-1x fa-linkedin-in"></i></a>
-          <a href="https://www.linkedin.com/in/pablo-vignolo-741032293/" class="font-semibold text-body" [ngClass]="{'text-white': darkMode, 'text-gray-800': !darkMode}">linkedin</a>
+          <a href="https://www.linkedin.com/in/pablo-vignolo-741032293/"
+            class="text-gris group-hover:text-electricBlue lg:hidden"><i class="fa-brands fa-xl fa-linkedin-in"></i></a>
+          <a href="https://www.linkedin.com/in/pablo-vignolo-741032293/"
+            class="text-gris group-hover:text-electricBlue hidden lg:block"><i
+              class="fa-brands fa-1x fa-linkedin-in"></i></a>
+          <a href="https://www.linkedin.com/in/pablo-vignolo-741032293/" class="font-semibold text-body"
+            [ngClass]="{'text-white': darkMode, 'text-gray-800': !darkMode}">linkedin</a>
         </button>
         <div class="flex items-center space-x-2 hover:scale-110 hover:cursor-pointer duration-150 group">
-          <a href="https://github.com/vigpablo" class="text-gris group-hover:text-electricBlue lg:hidden"><i class="fa-brands fa-xl fa-github"></i></a>
-          <a href="https://github.com/vigpablo" class="text-gris group-hover:text-electricBlue hidden lg:block"><i class="fa-brands fa-1x fa-github"></i></a>
-          <a href="https://github.com/vigpablo" class="font-semibold text-body" [ngClass]="{'text-white': darkMode, 'text-gray-800': !darkMode}">github.com/vigpablo</a>
+          <a href="https://github.com/vigpablo" class="text-gris group-hover:text-electricBlue lg:hidden"><i
+              class="fa-brands fa-xl fa-github"></i></a>
+          <a href="https://github.com/vigpablo" class="text-gris group-hover:text-electricBlue hidden lg:block"><i
+              class="fa-brands fa-1x fa-github"></i></a>
+          <a href="https://github.com/vigpablo" class="font-semibold text-body"
+            [ngClass]="{'text-white': darkMode, 'text-gray-800': !darkMode}">github.com/vigpablo</a>
         </div>
       </div>
     </div>
   </div>
-
 </body>
